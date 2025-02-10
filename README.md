@@ -47,7 +47,7 @@ bloggers_network/
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/joemrnice/bloggers_network.git
+    git clone https://github.com/joemrnice/bloggers-network.git
     cd bloggers_network
     ```
 
