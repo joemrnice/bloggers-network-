@@ -47,8 +47,8 @@ bloggers_network/
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/joemrnice/bloggers-network.git
-    cd bloggers-network
+    git clone https://github.com/joemrnice/bloggers-network-.git
+    cd bloggers-network-
     ```
 
 2. **Install Dependencies**:
