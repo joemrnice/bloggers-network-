@@ -1,0 +1,23 @@
+body {
+  background-color: #7b8487;
+  border: 2px solid white;
+  padding: 10px;
+  margin: 10px;
+  font-family: "sofia", sans-serif;
+}
+
+.signup-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+input[type=submit] {
+  background-color: mediumseagreen;
+  color: #ffffff;
+  border: none;
+  padding: 5px;
+}
+
+/*# sourceMappingURL=c.map */

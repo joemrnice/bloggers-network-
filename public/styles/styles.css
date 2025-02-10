@@ -1,0 +1,24 @@
+.btn > a {
+    text-decoration: none;
+    color: dodgerblue;
+}
+
+.blog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60%;
+    margin: auto;
+}
+
+
+#textbox {
+    width: 60%;
+    height: 60%;
+}
+
+#topmag {
+    margin-top: 40px;
+}

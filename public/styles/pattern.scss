@@ -1,0 +1,44 @@
+@use 'colors';
+@use 'layout';
+@use 'font';
+@use 'typography';
+@mixin color($color: colors.$c7, $color2: colors.$fontColor) {
+    background-color: $color;
+    color: $color2;
+}
+
+body {
+    @extend %container;
+}
+
+
+input[type="submit"] {
+    @include color($color: colors.$form, $color2: colors.$c7);
+    border: layout.$brd1;
+    padding: layout.$p5;
+}
+
+.img > img {
+    width: layout.$w30;
+    height: layout.$h30;
+    border: layout.$brd15 solid colors.$c16;
+}
+
+h1 {font-family: font.$fnt2f; font-size: font.$fnt50;}
+
+ul{
+    li {
+        a {
+            font-family: font.$fnt3f;
+            font-size: font.$fnt40;
+            justify-content: layout.$jc1;
+            align-items: layout.$ai1;
+            }
+    }
+} 
+
+div#googlesearch {
+    height: layout.$h;
+    margin: layout.$m0;
+    padding: layout.$p0;
+}#top{margin-top: layout.$m10;}

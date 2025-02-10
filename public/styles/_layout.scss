@@ -1,0 +1,35 @@
+@use 'colors';
+@use 'font';
+
+$p:auto;$p0:0;$p3:3px;$p4:4px;$p5:5px;$p6:6px;$p10:10px;$p15:15px;$p20:20px;$p25:25px;$p30:30px;
+$m:auto;$m0:0;$m3:3px;$m4:4px;$m5:5px;$m5:6px;$m10:10px;$m15:15px;$m20:20px;$m25:25px;$m30:30px;
+
+$vw:auto;$vw10:10%;$vw15:15%;$vw20:20%;$vw25:25%;$vw30:30%;$vw35:35%;$vw40:40%;$vw50:50%;
+$vw100:100%;
+
+$w:auto;$w10:10px;$w15:15px;$w20:20px;$w25:25px;$w30:30px;$w35:35px;$w40:40px;$w50:50px;
+$w100:100px;
+
+$vh:auto;$vh10:10%;$vh15:15%;$vh20:20%;$vh25:25%;$vh30:30%;$vh35:35%;$vh40:40%;$vh50:50%;
+$vh100:100%; 
+
+$h:auto;$h5:5px;$h10:10px;$h15:15px;$h20:20px;$h25:25px;$h30:30px;$h35:35px;$h40:40px;$h50:50px;
+$h100:100px;
+
+$jst1:center; $jst2:right; $jst3:left;
+
+$brd:none;$brd1:1px;$brd15:1.5px;$brd2:2px;$brd25:2.5px;
+
+$brd5w: 2px solid white;
+$dp1: flex; $dp2: grid; $dp3: inline-block; $dp4: block;
+$fdr1: row; $fdr2: column; $fw1: nowrap; $fw2: wrap;
+$jc1: center; $jc2: right; $jc3: left;
+$ai1: center; $ai2: right; $ai3: left;
+
+%container {
+    background-color: colors.$c2;
+    color: colors.$c6;
+    border: $brd5w;
+    padding: $p10;
+    margin: $m10;
+}

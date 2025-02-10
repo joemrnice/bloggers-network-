@@ -1,0 +1,33 @@
+<%- include("partials/head.ejs") %>
+
+<%- include("partials/header.ejs") %>
+
+
+<div class="col-md-10 mx-auto col-lg-5">
+    <h1 class="display-4 fw-bold text-body-emphasis" id="top"><span><i class="fa-solid fa-blog"></i></span> Bloggers Network</h1> <br>
+    <h5>Hello Bloggers! Stay Connect with Us</h5>
+    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/register" method="post">
+        <h2>Contact Us</h2>
+     <div class="form-floating mb-3">
+        <input type="radio" name="radio" value="updates" required> Get Updates
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Joe" required>
+        <label for="name">Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" name="email" placeholder="joe@example.com" required>
+        <label for="email">Email</label>
+      </div>
+      <div class="form-floating mb-3">
+        <label for="message"></label><br>
+        <textarea name="message" id="message" cols="55" rows="8" minlength="100" maxlength="500" required placeholder="Leave a message..."></textarea>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+      <hr class="my-4">
+  <small class="text-body-secondary">Already a member? <a href="/login">Login</a> from here.</small>
+    </form>
+  </div>
+
+
+<%- include("partials/footer.ejs") %>          

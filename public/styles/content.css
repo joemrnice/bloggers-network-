@@ -1,0 +1,45 @@
+@import "https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong|Tangerine";
+body {
+  background-color: #00ffff;
+  color: #000000;
+  border: 2px solid white;
+  padding: 10px;
+  margin: 10px;
+}
+
+input[type=submit] {
+  background-color: mediumseagreen;
+  color: #ffffff;
+  border: 1px;
+  padding: 5px;
+}
+
+.img > img {
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid #a1b3c4;
+}
+
+h1 {
+  font-family: "Tangerine", serif;
+  font-size: 50px;
+}
+
+ul li a {
+  font-family: "Audiowide", sans-serif;
+  font-size: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+div#googlesearch {
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+#top {
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=content.css.map */
