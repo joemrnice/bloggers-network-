@@ -5,7 +5,7 @@ let userAccess = false;
 
 let userAccessGranted = (req, res, next) => {
     const password = req.body["password"];
-    if (password === "joemrnice0258$") {
+    if (password === "joemrnice$") {
         userAccess = true;
     }
     next();
