@@ -107,5 +107,3 @@ For any questions or feedback, feel free to reach out:
 Enjoy building and exploring the **Bloggers Network**! 🚀
 
 ---
-
-This README.md file provides a clear overview of your project, its structure, and how to set it up. You can adapt it further to include additional details like specific dependencies, deployment instructions, or screenshots of the website.
