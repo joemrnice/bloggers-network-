@@ -23,7 +23,8 @@ bloggers_network/
 │   ├── index.ejs              # Home page
 │   ├── login.ejs              # Login page
 │   └── register.ejs           # Registration page
-├── public/                    # Static assets
+├── public/
+|   |__ uploads               # Static assets
 │   ├── images/                # Image files
 │   ├── pages/                 # Static HTML pages
 │   │   └── index.html         # Rendered upon successful login/registration
@@ -46,26 +47,30 @@ bloggers_network/
 ## Setup Instructions
 
 1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/joemrnice/bloggers-network-.git
-    cd bloggers-network-
-    ```
+
+   ```bash
+   git clone https://github.com/joemrnice/bloggers-network-.git
+   cd bloggers-network-
+   ```
 
 2. **Install Dependencies**:
-    Ensure you have Node.js and npm installed. Then, run:
-    ```bash
-    npm install
-    ```
+   Ensure you have Node.js and npm installed. Then, run:
+
+   ```bash
+   npm install
+   ```
 
 3. **Run the Project**:
-    Start the server using:
-    ```bash
-    npm start
-    ```
-    The website will be available at `http://localhost:3000`.
+   Start the server using:
+
+   ```bash
+   npm start
+   ```
+
+   The website will be available at `http://localhost:3000`.
 
 4. **Customize Styles**:
-    Edit the SASS files in `public/styles/sass/` and compile them to CSS using your preferred SASS compiler.
+   Edit the SASS files in `public/styles/sass/` and compile them to CSS using your preferred SASS compiler.
 
 ---
 
