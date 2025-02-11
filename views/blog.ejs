@@ -83,51 +83,45 @@ As we embark on this journey through the world of software engineering, staying 
    <hr>
     <br><br>
    <div class="posts">
-    <div class="img"> <%- locals.image %> </div>
+    <div class="img"> <img src="/uploads/<%= locals.image %>" alt="bloggers"> </div>
     
     <h3><%= locals.blogs %></h3>
     <h1 class="before"><span><i class="fa-solid fa-blog"></i></span><%= locals.blogTitle %></h1>
+      <p>
        <%= locals.blogPost %>
+      </p>
+      <i><%= locals.created_at %></i>
        </div>
 <hr>
 
 <div class="col-md-10 mx-auto col-lg-5">
     <h1 class="display-4 fw-bold text-body-emphasis" id="top"><span><i class="fa-solid fa-blog"></i></span> Bloggers Network</h1> <br>
     <h5>Hello Bloggers! Stay Connect with Us</h5>
-    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/blogger" method="post">
-        <h2>Contact Us</h2>
+    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/blogger" method="post" enctype="multipart/form-data">
+        <h2>Create Post</h2>
      <div class="form-floating mb-3">
-        <input type="file" name="src" width="30" id="mage" placeholder="Photo" required>
+        <input type="file" name="blogger_image" width="30" id="mage" placeholder="Photo" required>
         <label for="mage">Photo</label>
+      </div><br><br>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Name:" required>
+        <label for="name"></label>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="name" name="name" placeholder="Joe" required>
-        <label for="name">Name</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="email" name="email" placeholder="joe@example.com" required>
-        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email:" required>
+        <label for="email"></label>
       </div>
       <div class="form-floating mb-3">
         <input type="text" name="title" id="title" placeholder="Blog Title:" required>
-        <label for="email">Blog Post</label>
+        <label for="title"></label>
       </div>
       <div class="form-floating mb-3">
         <label for="message"></label>
-        <textarea name="blog" id="message" cols="55" rows="8" minlength="150" maxlength="1500" placeholder="Leave a message..." required ></textarea>
+        <textarea name="blog" id="message" cols="30" rows="4" minlength="150" maxlength="1500" placeholder="post from here..." required ></textarea>
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Post</button>
   </div>
 
-
-<!-- 
-        <form action="/blogger" method="post">
-            <label for="mage">Photo: <input type="file" name="src" width="30" id="mage" required></label><br><br>
-            <input type="text" name="name" id="name" placeholder="Name:" required><br><br>
-            <input type="text" name="title" id="title" placeholder="Blog Title:" required><br><br>
-            <textarea name="blog" id="textbox" minlength="150" maxlength="2000" placeholder="blog post here..." cols="40" rows="10"></textarea><br><br>
-            <input type="submit" value="Post">
-        </form> -->
     </div>
     </div>
 </main>
