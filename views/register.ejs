@@ -1,42 +1,55 @@
 <%- include("partials/head.ejs") %>
-
 <%- include("partials/header.ejs") %>
 
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
-    <div class="row align-items-center g-lg-5 py-5">
-        <h1 class="display-4 fw-bold text-body-emphasis" id="top"><span><i class="fa-solid fa-blog"></i></span> Bloggers Network</h1>
-      <div class="col-lg-7 text-center text-lg-start">
-        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Vertically centered hero sign-up form</h1>
-        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-      </div>
-      <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/register" method="post">
-         <div class="form-floating mb-3">
-            <input type="file" class="form-control" id="photo" name="photo" required>
-            <label for="photo">Photo</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Joe" required>
-            <label for="name">Name</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" name="email" placeholder="joe@example.com" required>
-            <label for="email">Email</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-            <label for="password">Password</label>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-          <hr class="my-4">
-          <small class="text-body-secondary">By clicking Sign up, you agree to the <a href="/terms">terms</a> of use.</small>
-          <br>
-      <small class="text-body-secondary">Already Sign-Up <a href="/login">Login</a> from here.</small>
-        </form>
+<main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <section class="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
+    <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 sm:p-12">
+      <p class="inline-flex items-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">Create account</p>
+      <h1 class="display-font mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Join the network and start publishing immediately</h1>
+      <p class="mt-6 max-w-xl text-base leading-8 text-slate-300">Registration is now tied to the database. Your profile, password, and avatar are stored in SQLite and your session begins as soon as the form succeeds.</p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+          <p class="text-sm font-semibold text-white">Profile first</p>
+          <p class="mt-1 text-sm text-slate-300">Add your name and avatar so your posts feel personal from the first publish.</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+          <p class="text-sm font-semibold text-white">Auto session</p>
+          <p class="mt-1 text-sm text-slate-300">You land back in the app signed in, with no extra confirmation screens.</p>
+        </div>
       </div>
     </div>
-  </div>
 
-        
+    <div class="rounded-[2rem] border border-white/10 bg-slate-950/60 p-6 sm:p-8">
+      <% if (typeof errorMessage !== "undefined" && errorMessage) { %>
+        <div class="mb-6 rounded-3xl border border-rose-300/20 bg-rose-300/10 px-5 py-4 text-sm text-rose-100"><%= errorMessage %></div>
+      <% } %>
 
-<%- include("partials/footer.ejs") %>          
+      <form action="/register" method="post" enctype="multipart/form-data" class="space-y-5">
+        <input type="hidden" name="next" value="<%= nextUrl %>">
+        <div>
+          <label for="photo" class="mb-2 block text-sm font-medium text-slate-200">Avatar</label>
+          <input id="photo" name="photo" type="file" accept="image/*" class="w-full rounded-2xl border border-dashed border-white/15 bg-slate-950/60 px-4 py-3 text-sm text-slate-300 file:mr-4 file:rounded-full file:border-0 file:bg-cyan-400 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-slate-950 hover:border-cyan-300/40">
+        </div>
+        <div>
+          <label for="name" class="mb-2 block text-sm font-medium text-slate-200">Name</label>
+          <input id="name" name="name" type="text" required class="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10" placeholder="Your name">
+        </div>
+        <div>
+          <label for="email" class="mb-2 block text-sm font-medium text-slate-200">Email</label>
+          <input id="email" name="email" type="email" required class="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10" placeholder="you@example.com">
+        </div>
+        <div>
+          <label for="password" class="mb-2 block text-sm font-medium text-slate-200">Password</label>
+          <input id="password" name="password" type="password" required class="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10" placeholder="Create a secure password">
+        </div>
+
+        <button type="submit" class="inline-flex w-full items-center justify-center rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Create account</button>
+      </form>
+
+      <p class="mt-6 text-sm text-slate-300">Already have an account? <a href="/login" class="font-semibold text-cyan-200 transition hover:text-cyan-100">Log in here</a>.</p>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer.ejs") %>

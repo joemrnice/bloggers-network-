@@ -1,27 +1,27 @@
 {
-  "name": "testweb",
+  "name": "bloggers-network",
   "version": "1.0.0",
-  "description": "code with joe",
-  "main": "index.js",
+  "description": "A modern Tailwind and SQLite-powered bloggers network.",
+  "main": "app.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.mjs"
+    "dev": "nodemon app.mjs",
+    "start": "node app.mjs"
   },
   "keywords": [
-    "web",
-    "authentication",
-    "login",
-    "sign-up"
+    "blog",
+    "sqlite",
+    "tailwind",
+    "authentication"
   ],
   "author": "Joseph Lahai Kanu",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.20.3",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
-    "express-generator": "^4.2.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "sqlite3": "^6.0.1"
   }
 }

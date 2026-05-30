@@ -1,24 +1,100 @@
 <%- include("partials/head.ejs") %>
-
 <%- include("partials/header.ejs") %>
 
+<main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <section class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-glow">
+    <div class="grid gap-0 lg:grid-cols-2">
+      <div class="p-8 sm:p-12 lg:p-16">
+        <p class="inline-flex items-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">Creator platform</p>
+        <h1 class="display-font mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">A sharper home for modern bloggers</h1>
+        <p class="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">Write, publish, and read inside a fast interface that feels alive instead of dated. Bloggers Network now uses in-memory SQLite for real users and posts, plus responsive layouts that work on mobile and desktop.</p>
 
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/register" class="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Create account</a>
+          <a href="/blog" class="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Read posts</a>
+        </div>
 
-<div class="container col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <img src="/images/bookhubAI.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        <% if (typeof currentUser !== "undefined" && currentUser) { %>
+          <div class="mt-6 rounded-3xl border border-emerald-300/20 bg-emerald-300/10 px-5 py-4 text-sm text-emerald-100">Welcome back, <span class="font-semibold"><%= currentUser.name %></span>. Your account is active and ready to publish.</div>
+        <% } %>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+            <p class="text-3xl font-semibold text-white"><%= stats.members %></p>
+            <p class="mt-1 text-sm text-slate-400">Registered members</p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+            <p class="text-3xl font-semibold text-white"><%= stats.posts %></p>
+            <p class="mt-1 text-sm text-slate-400">Published posts</p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+            <p class="text-3xl font-semibold text-white"><%= stats.messages %></p>
+            <p class="mt-1 text-sm text-slate-400">Messages received</p>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><span><i class="fa-solid fa-blog"></i></span>Welcome to Bloggers NetWork</h1>
-        <p class="lead"><span><i class="fa-solid fa-blog"></i> Unleash the Power of Your Content with Bloggers Network.</span>  the world’s most popular blog post network. Are you a passionate blogger, content creator, or influencer looking to expand your reach and monetize your talents? Look no further than Bloggers Network, the premier platform that empowers content creators like you to connect with a global audience and drive real results.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2"><a href="/register">Sign Up</a></button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="/about">About</a></button>
+
+      <div class="relative min-h-[26rem] bg-slate-900 lg:min-h-full">
+        <img src="/images/bookhubAI.jpg" alt="Creators collaborating" class="h-full w-full object-cover opacity-90">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
+          <div class="max-w-md rounded-3xl border border-white/10 bg-slate-950/75 p-6 backdrop-blur">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Live experience</p>
+            <p class="mt-3 text-2xl font-semibold text-white">A layout that feels editorial, not generic.</p>
+            <p class="mt-3 text-sm leading-6 text-slate-300">Each screen now emphasizes hierarchy, spacing, and readable content so the app feels intentional even before the feed grows.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-        
+  </section>
 
-<%- include("partials/footer.ejs") %>          
+  <section class="mt-10 grid gap-6 lg:grid-cols-3">
+    <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Fast setup</p>
+      <h2 class="mt-3 display-font text-2xl font-semibold text-white">Register in seconds</h2>
+      <p class="mt-3 text-sm leading-6 text-slate-300">Create an account with an email, password, and avatar. The app stores it in SQLite immediately and signs you in automatically.</p>
+    </div>
+    <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Clean publishing</p>
+      <h2 class="mt-3 display-font text-2xl font-semibold text-white">Write posts that read well</h2>
+      <p class="mt-3 text-sm leading-6 text-slate-300">The composer is responsive, simple, and focused. It keeps the UI from feeling cluttered while still supporting real uploads.</p>
+    </div>
+    <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Modern stack</p>
+      <h2 class="mt-3 display-font text-2xl font-semibold text-white">Tailwind plus SQLite</h2>
+      <p class="mt-3 text-sm leading-6 text-slate-300">The site now ships as an app-like experience using Tailwind CDN, cookie-based auth, and memory-backed database tables for local development.</p>
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Fresh from the feed</p>
+        <h2 class="display-font mt-3 text-3xl font-semibold text-white">Recent posts</h2>
+      </div>
+      <a href="/blog" class="text-sm font-semibold text-cyan-200 transition hover:text-cyan-100">View all posts</a>
+    </div>
+
+    <div class="mt-6 grid gap-6 lg:grid-cols-3">
+      <% recentPosts.forEach((post) => { %>
+        <article class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/70">
+          <img src="<%= post.displayImage %>" alt="<%= post.title %>" class="h-56 w-full object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 text-sm text-slate-400">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-400/15 text-xs font-semibold text-cyan-100"><%= post.initials %></span>
+              <div>
+                <p class="font-semibold text-slate-100"><%= post.creatorName %></p>
+                <p><%= post.formattedDate %></p>
+              </div>
+            </div>
+            <h3 class="mt-4 text-xl font-semibold text-white"><%= post.title %></h3>
+            <p class="mt-3 text-sm leading-6 text-slate-300"><%= post.excerpt %></p>
+            <a href="/blog/<%= post.id %>" class="mt-5 inline-flex text-sm font-semibold text-cyan-200 transition hover:text-cyan-100">Read story</a>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer.ejs") %>

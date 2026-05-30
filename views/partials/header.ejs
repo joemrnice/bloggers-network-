@@ -1,20 +1,54 @@
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <a href="/" class="flex items-center gap-3">
+      <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400/15 text-lg font-bold text-cyan-200 ring-1 ring-cyan-300/20">BN</span>
+      <span class="display-font text-lg font-semibold tracking-tight text-white">Bloggers Network</span>
+    </a>
 
-    <header>
-        <nav class="py-2 bg-body-tertiary border-bottom">
-            <div class="container d-flex flex-wrap">
-              <ul class="nav me-auto">
-                <li class="nav-item"><a href="/" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="/about" class="nav-link link-body-emphasis px-2">About</a></li>
-                <li class="nav-item"><a href="/contact" class="nav-link link-body-emphasis px-2">Contact</a></li>
-                <li class="nav-item"><a href="/blog" class="nav-link link-body-emphasis px-2">Blog-Post</a></li>
-              </ul>
-              <script async src="https://cse.google.com/cse.js?cx=85b4fbb2700a14f3a">
-            </script>
-            <div class="gcse-search" id="googlesearch"></div>
-              <ul class="nav">
-                <li class="nav-item"><a href="/login" class="nav-link link-body-emphasis px-2">Login</a></li>
-                <li class="nav-item"><a href="/register" class="nav-link link-body-emphasis px-2">Register</a></li>
-              </ul>
-            </div>
-          </nav>
-    </header>
+    <nav class="hidden items-center gap-2 md:flex">
+      <a href="/" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">Home</a>
+      <a href="/about" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">About</a>
+      <a href="/blog" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">Blog</a>
+      <a href="/contact" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">Contact</a>
+    </nav>
+
+    <div class="hidden items-center gap-2 md:flex">
+      <% if (typeof currentUser !== "undefined" && currentUser) { %>
+        <div class="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-3 py-2">
+          <div class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-cyan-400/20 text-xs font-semibold text-cyan-100">
+            <% if (currentUser.avatar && currentUser.avatar.startsWith("/")) { %>
+              <img src="<%= currentUser.avatar %>" alt="<%= currentUser.name %>" class="h-full w-full object-cover">
+            <% } else { %>
+              <%= currentUser.name ? currentUser.name.slice(0, 2).toUpperCase() : "U" %>
+            <% } %>
+          </div>
+          <div class="hidden lg:block">
+            <p class="text-xs font-medium text-slate-300">Signed in as</p>
+            <p class="text-sm font-semibold text-white"><%= currentUser.name %></p>
+          </div>
+        </div>
+        <a href="/logout" class="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-cyan-300/40 hover:bg-cyan-300/10">Logout</a>
+      <% } else { %>
+        <a href="/login" class="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/10">Login</a>
+        <a href="/register" class="rounded-full bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Join now</a>
+      <% } %>
+    </div>
+
+    <details class="relative md:hidden">
+      <summary class="list-none rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-white/10">Menu</summary>
+      <div class="absolute right-0 mt-3 w-64 rounded-3xl border border-white/10 bg-slate-950 p-2 shadow-2xl shadow-black/30">
+        <a href="/" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">Home</a>
+        <a href="/about" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">About</a>
+        <a href="/blog" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">Blog</a>
+        <a href="/contact" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">Contact</a>
+        <div class="my-2 h-px bg-white/10"></div>
+        <% if (typeof currentUser !== "undefined" && currentUser) { %>
+          <a href="/logout" class="block rounded-2xl px-4 py-3 text-sm font-semibold text-white hover:bg-white/5">Logout</a>
+        <% } else { %>
+          <a href="/login" class="block rounded-2xl px-4 py-3 text-sm font-semibold text-white hover:bg-white/5">Login</a>
+          <a href="/register" class="block rounded-2xl px-4 py-3 text-sm font-semibold text-cyan-300 hover:bg-white/5">Register</a>
+        <% } %>
+      </div>
+    </details>
+  </div>
+</header>

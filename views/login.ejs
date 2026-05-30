@@ -1,28 +1,47 @@
 <%- include("partials/head.ejs") %>
-
 <%- include("partials/header.ejs") %>
 
+<main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <section class="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
+    <div class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-400/15 via-slate-950 to-slate-950 p-8 sm:p-12">
+      <p class="inline-flex items-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">Welcome back</p>
+      <h1 class="display-font mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Sign in and pick up where you left off</h1>
+      <p class="mt-6 max-w-xl text-base leading-8 text-slate-300">The login flow now checks both email and password against a salted hash stored in SQLite, then restores your session with an httpOnly cookie.</p>
 
-<div class="col-md-10 mx-auto col-lg-5" id="topmag">
-    <h1 class="display-4 fw-bold text-body-emphasis" id="top"><span><i class="fa-solid fa-blog"></i></span> Bloggers Network</h1>
-    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/login" method="post">
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="email" name="email" placeholder="joe@example.com" required>
-        <label for="email">Email</label>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+          <p class="text-sm font-semibold text-white">Safer auth</p>
+          <p class="mt-1 text-sm text-slate-300">Passwords are hashed with scrypt before they ever hit storage.</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+          <p class="text-sm font-semibold text-white">Responsive UI</p>
+          <p class="mt-1 text-sm text-slate-300">The form adapts cleanly across laptop, tablet, and mobile screens.</p>
+        </div>
       </div>
-      <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-        <label for="password">Password</label>
-      </div>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-      <hr class="my-4">
-      <small class="text-body-secondary">Not yet Sign-Up, Please <a href="/register">Sign Up</a> for a free account</small>
-    </form>
-  </div>
+    </div>
 
-<%- include("partials/footer.ejs") %>          
+    <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8">
+      <% if (typeof errorMessage !== "undefined" && errorMessage) { %>
+        <div class="mb-6 rounded-3xl border border-rose-300/20 bg-rose-300/10 px-5 py-4 text-sm text-rose-100"><%= errorMessage %></div>
+      <% } %>
+
+      <form action="/login" method="post" class="space-y-5">
+        <input type="hidden" name="next" value="<%= nextUrl %>">
+        <div>
+          <label for="email" class="mb-2 block text-sm font-medium text-slate-200">Email</label>
+          <input id="email" name="email" type="email" required class="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10" placeholder="you@example.com">
+        </div>
+        <div>
+          <label for="password" class="mb-2 block text-sm font-medium text-slate-200">Password</label>
+          <input id="password" name="password" type="password" required class="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10" placeholder="Enter your password">
+        </div>
+
+        <button type="submit" class="inline-flex w-full items-center justify-center rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Login</button>
+      </form>
+
+      <p class="mt-6 text-sm text-slate-300">Need an account? <a href="/register" class="font-semibold text-cyan-200 transition hover:text-cyan-100">Create one here</a>.</p>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer.ejs") %>

@@ -1,33 +1,60 @@
 <%- include("partials/head.ejs") %>
-
 <%- include("partials/header.ejs") %>
 
+<main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <section class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+    <div class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-400/15 via-white/5 to-slate-950 p-8 sm:p-12">
+      <p class="inline-flex items-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">Contact support</p>
+      <h1 class="display-font mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Stay connected with the team</h1>
+      <p class="mt-6 max-w-xl text-base leading-8 text-slate-300">Send feedback, ask for features, or report a problem. The form now posts into the same app database so the request actually lands inside the product flow.</p>
 
-<div class="col-md-10 mx-auto col-lg-5">
-    <h1 class="display-4 fw-bold text-body-emphasis" id="top"><span><i class="fa-solid fa-blog"></i></span> Bloggers Network</h1> <br>
-    <h5>Hello Bloggers! Stay Connect with Us</h5>
-    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/register" method="post">
-        <h2>Contact Us</h2>
-     <div class="form-floating mb-3">
-        <input type="radio" name="radio" value="updates" required> Get Updates
+      <div class="mt-8 space-y-4">
+        <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+          <p class="text-sm font-semibold text-white">Email</p>
+          <p class="mt-1 text-sm text-slate-300">hello@bloggers-network.local</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+          <p class="text-sm font-semibold text-white">Response window</p>
+          <p class="mt-1 text-sm text-slate-300">Usually within 24 hours for product or account issues.</p>
+        </div>
       </div>
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="name" name="name" placeholder="Joe" required>
-        <label for="name">Name</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="email" name="email" placeholder="joe@example.com" required>
-        <label for="email">Email</label>
-      </div>
-      <div class="form-floating mb-3">
-        <label for="message"></label><br>
-        <textarea name="message" id="message" cols="55" rows="8" minlength="100" maxlength="500" required placeholder="Leave a message..."></textarea>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
-      <hr class="my-4">
-  <small class="text-body-secondary">Already a member? <a href="/login">Login</a> from here.</small>
-    </form>
-  </div>
+    </div>
 
+    <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8">
+      <% if (typeof errorMessage !== "undefined" && errorMessage) { %>
+        <div class="mb-6 rounded-3xl border border-rose-300/20 bg-rose-300/10 px-5 py-4 text-sm text-rose-100"><%= errorMessage %></div>
+      <% } %>
+      <% if (typeof successMessage !== "undefined" && successMessage) { %>
+        <div class="mb-6 rounded-3xl border border-emerald-300/20 bg-emerald-300/10 px-5 py-4 text-sm text-emerald-100"><%= successMessage %></div>
+      <% } %>
 
-<%- include("partials/footer.ejs") %>          
+      <form action="/contact" method="post" class="space-y-5">
+        <div>
+          <label for="name" class="mb-2 block text-sm font-medium text-slate-200">Name</label>
+          <input id="name" name="name" type="text" required class="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10" placeholder="Your name">
+        </div>
+        <div>
+          <label for="email" class="mb-2 block text-sm font-medium text-slate-200">Email</label>
+          <input id="email" name="email" type="email" required class="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10" placeholder="you@example.com">
+        </div>
+        <div>
+          <label for="topic" class="mb-2 block text-sm font-medium text-slate-200">Topic</label>
+          <select id="topic" name="topic" class="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10">
+            <option>General question</option>
+            <option>Account access</option>
+            <option>Publishing issue</option>
+            <option>Feature request</option>
+          </select>
+        </div>
+        <div>
+          <label for="message" class="mb-2 block text-sm font-medium text-slate-200">Message</label>
+          <textarea id="message" name="message" rows="7" required class="w-full rounded-3xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-300/10" placeholder="Tell us what you need..."></textarea>
+        </div>
+
+        <button type="submit" class="inline-flex w-full items-center justify-center rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Send message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer.ejs") %>

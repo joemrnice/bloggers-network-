@@ -1,78 +1,78 @@
 <%- include("partials/head.ejs") %>
-
 <%- include("partials/header.ejs") %>
 
+<main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <section class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+    <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 sm:p-12">
+      <p class="inline-flex items-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">About the platform</p>
+      <h1 class="display-font mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Built for creators who want a cleaner publishing loop</h1>
+      <p class="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">Bloggers Network was refreshed to feel current, fast, and useful. It now connects login, registration, contact, and blog publishing through an in-memory SQLite backend so the app behaves like a small product rather than a static brochure.</p>
 
-<div class="px-4 pt-5 my-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold text-body-emphasis"><span><i class="fa-solid fa-blog"></i></span> Bloggers Network</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4"><span><i class="fa-solid fa-blog"></i></span>Bloggers NetWork represent the classical mix of technologies in pioneering the means and methods of captivating blog enthusiast to deliver professional contents of modern charisma. </p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <button type="/register" class="btn btn-primary btn-lg px-4 me-sm-3">Sign Up</button>
-        <button type="/login" class="btn btn-outline-secondary btn-lg px-4">Login</button>
-      </div>
-    </div>
-    <div class="overflow-hidden" style="max-height: 30vh;">
-      <div class="container px-5">
-        <img src="images/blogs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
-      </div>
-    </div>
-  </div>
-  
- 
-  <div class="container px-4 py-5">
-    <h2 class="pb-2 border-bottom">Why Choose Bloggers Network?</h2>
-
-    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-      <div class="col d-flex flex-column align-items-start gap-2">
-        <h2 class="fw-bold text-body-emphasis">The future is your Choice you make!</h2>
-        <p class="text-body-secondary">Never leave it undone; We do all blog posting stuff for free.Your choice today will payoff abundantly. <a href="/register">Join us</a> today to stay out of the blog posting race and be unique.</p>
-        <a href="/register" class="btn btn-primary btn-lg docs-creator">Register Now!</a>
-      </div>
-
-      <div class="col">
-        <div class="row row-cols-1 row-cols-sm-2 g-4">
-          <div class="col d-flex flex-column gap-2">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#collection"></use>
-              </svg>
-            </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Free Membership</h4>
-            <p class="text-body-secondary">You are only limited to two blog post per month with 1000 characters and one image per each.</p>
-          </div>
-
-          <div class="col d-flex flex-column gap-2">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#gear-fill"></use>
-              </svg>
-            </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Bronze Membership</h4>
-            <p class="text-body-secondary">Supercharge your blog post with only $2 per month, with five(5) blog post monthly of 2000 characters and four(4) images per each.</p>
-          </div>
-          <div class="col d-flex flex-column gap-2">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#speedometer"></use>
-              </svg>
-            </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Silver Membership</h4>
-            <p class="text-body-secondary">Unleash your blogging potentials with this package; only $5 per month will promote you personally and professionally. Featuring ten(10) blog post monthly of 3000 characters and ten(10) images per each</p>
-          </div>
-
-          <div class="col d-flex flex-column gap-2">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#table"></use>
-              </svg>
-            </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Premium Membership</h4>
-            <p class="text-body-secondary">I am unlimited in everything I do for only $15 per month. What are you waiting for?</p>
-          </div>
+      <div class="mt-8 grid gap-4 sm:grid-cols-3">
+        <div class="rounded-3xl border border-white/10 bg-slate-950/70 p-5">
+          <p class="text-3xl font-semibold text-white"><%= stats.members %></p>
+          <p class="mt-1 text-sm text-slate-400">Members</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-slate-950/70 p-5">
+          <p class="text-3xl font-semibold text-white"><%= stats.posts %></p>
+          <p class="mt-1 text-sm text-slate-400">Posts</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-slate-950/70 p-5">
+          <p class="text-3xl font-semibold text-white"><%= stats.messages %></p>
+          <p class="mt-1 text-sm text-slate-400">Messages</p>
         </div>
       </div>
     </div>
-  </div>
 
-<%- include("partials/footer.ejs") %>          
+    <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/60">
+      <img src="/images/digitalhub.jpg" alt="Modern creator workspace" class="h-full w-full object-cover">
+    </div>
+  </section>
+
+  <section class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Focus</p>
+      <h2 class="mt-3 display-font text-2xl font-semibold text-white">Readable layouts</h2>
+      <p class="mt-3 text-sm leading-6 text-slate-300">The layout was rebuilt to emphasize content hierarchy instead of default bootstrap spacing.</p>
+    </article>
+    <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Auth</p>
+      <h2 class="mt-3 display-font text-2xl font-semibold text-white">Real sign-in flow</h2>
+      <p class="mt-3 text-sm leading-6 text-slate-300">Login now checks both email and password against salted hashes in SQLite-backed user records.</p>
+    </article>
+    <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Publishing</p>
+      <h2 class="mt-3 display-font text-2xl font-semibold text-white">Post creation</h2>
+      <p class="mt-3 text-sm leading-6 text-slate-300">Authenticated users can publish content and upload an image without leaving the page flow.</p>
+    </article>
+    <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">UX</p>
+      <h2 class="mt-3 display-font text-2xl font-semibold text-white">Mobile first</h2>
+      <p class="mt-3 text-sm leading-6 text-slate-300">Forms, nav, and content cards resize cleanly on smaller screens so the app still feels deliberate.</p>
+    </article>
+  </section>
+
+  <section class="mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+    <div class="rounded-[2rem] border border-white/10 bg-slate-950/60 p-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">What changed</p>
+      <ul class="mt-6 space-y-4 text-sm leading-6 text-slate-300">
+        <li class="rounded-2xl border border-white/10 bg-white/5 p-4">Static screens were replaced with data-driven pages.</li>
+        <li class="rounded-2xl border border-white/10 bg-white/5 p-4">The auth middleware now resolves the signed-in user from a session cookie.</li>
+        <li class="rounded-2xl border border-white/10 bg-white/5 p-4">Blog posts are stored and rendered from an in-memory SQLite table.</li>
+        <li class="rounded-2xl border border-white/10 bg-white/5 p-4">The UI uses Tailwind CDN, richer spacing, and clearer calls to action.</li>
+      </ul>
+    </div>
+
+    <div class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-400/15 via-slate-950 to-slate-950 p-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Mission</p>
+      <h2 class="display-font mt-4 text-3xl font-semibold text-white">Help creators publish faster and present better.</h2>
+      <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">The point of the refresh is not just visual polish. It is to make the product easier to understand, easier to use, and easier to extend as the content model grows.</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="/register" class="rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Join the network</a>
+        <a href="/blog" class="rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Browse blog</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer.ejs") %>
